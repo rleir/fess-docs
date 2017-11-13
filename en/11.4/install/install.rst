@@ -5,51 +5,47 @@ Installation
 Requirements
 ============
 
-|Fess| can be available in these environments.
+|Fess| can be installed on Linux, Windows, or MacOS. It requires Java 8 update 20 or later and Elasticsearch 5.6.1 or newer (embedded Elasticsearch is not recommended for production use).
 
--  OS: Windows/Unix with Java environment
--  Java: Java 8 update 20 or later
--  (RPM or DEB) Elasticsearch: 5.6.1
-
-If Java is not installed in your environment, see we want to |Fess| from `Oracle site <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__ to install JDK.
-Embedded Elasticsearch is not recommended for production use.
+We recommend you install the Java JDK from the  `Oracle site <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__ 
 
 Download
 ========
 
 Download the latest |Fess| package from the release site, `https://github.com/codelibs/fess/releases <https://github.com/codelibs/fess/releases>`__.
 
-Installation
-============
+Linux Installation
+==================
 
-Using ZIP package
+
+Elasticsearch RPM package
+-----------------
+
+First, install the elasticsearch RPM package. Download elasticsearch from the `elasticsearch site  <https://www.elastic.co/downloads/elasticsearch>`__, and then install the package. Type these commands in the Linux bash shell:
+
+::
+
+    $ sudo rpm -ivh elasticsearch-<version>.rpm
+
+The following configuration needs to be added to /etc/elasticsearch/elasticsearch.yml
+
+::
+
+    configsync.config_path: /var/lib/elasticsearch/config
+
+Fess ZIP package
 -----------------
 
 Unzip the downloaded fess-<version>.zip.
-For UNIX environment, run the following command:
+In a Linux bash shell, run the following commands:
 
 ::
 
     $ unzip fess-<version>.zip
     $ cd fess-<version>
 
-Using RPM package
------------------
 
-You need to install elasticsearch RPM package before Fess installation.
-Download elasticsearch RPM package from elasticsearch site `https://www.elastic.co/downloads/elasticsearch <https://www.elastic.co/downloads/elasticsearch>`__, and then install the package.
-
-::
-
-    $ sudo rpm -ivh elasticsearch-<version>.rpm
-
-To access from Fess, the following configuration needs to be added to /etc/elasticsearch/elasticsearch.yml
-
-::
-
-    configsync.config_path: /var/lib/elasticsearch/config
-
-Next, install |Fess| RPM package.
+Install |Fess| RPM package.
 
 ::
 
